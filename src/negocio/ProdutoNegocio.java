@@ -1,7 +1,8 @@
-package one.digitalinovation.laboojava.negocio;
+package negocio;
 
-import one.digitalinovation.laboojava.basedados.Banco;
-import one.digitalinovation.laboojava.entidade.Produto;
+
+import basedados.Banco;
+import entidade.Produto;
 
 import java.util.Optional;
 
