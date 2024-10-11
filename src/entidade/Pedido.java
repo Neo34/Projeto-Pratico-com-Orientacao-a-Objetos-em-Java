@@ -1,4 +1,4 @@
-package laboojava.entidade;
+package entidade;
 
 /**
  * Classe que representa a entidade pedido, qual é a compra dos produtos por um cliente.
