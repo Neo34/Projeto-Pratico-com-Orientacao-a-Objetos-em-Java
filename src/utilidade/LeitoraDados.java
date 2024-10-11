@@ -3,6 +3,11 @@ package utilidade;
 
 import basedados.Banco;
 import entidade.Cupom;
+import entidade.Livro;
+import entidade.Pedido;
+import entidade.Produto;
+import entidade.constantes.Genero;
+import negocio.ProdutoNegocio;
 
 import java.util.Optional;
 import java.util.Scanner;

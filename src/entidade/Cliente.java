@@ -16,11 +16,12 @@ public class Cliente {
     private String cpf;
 
     /**
-     * Inicialização de Entidade Cliente com nome e cpf
+     * É uma boa prática fornecer um construtor que permita passar esses valores
+     * como parâmetros para tornar a classe mais flexível
      */
-    public Cliente() {
-        this.nome = "Fulano";
-        this.cpf = "123456789011";
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
     }
 
     /**
