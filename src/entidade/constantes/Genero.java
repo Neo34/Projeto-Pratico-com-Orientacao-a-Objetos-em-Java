@@ -1,4 +1,4 @@
-package laboojava.entidade.constantes;
+package entidade.constantes;
 
 /**
  * Gêneros dos livros vendidos.

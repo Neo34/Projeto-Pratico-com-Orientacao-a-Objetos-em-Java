@@ -1,7 +1,7 @@
-package laboojava.entidade;
+package entidade;
 
 
-import laboojava.entidade.constantes.Genero;
+import entidade.constantes.Genero;
 
 /**
  * Classe que representa um livro, que é uma especialização de um produto da loja.

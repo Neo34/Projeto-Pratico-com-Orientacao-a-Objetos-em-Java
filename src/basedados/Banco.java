@@ -1,9 +1,9 @@
-package laboojava.entidade.basedados;
+package basedados;
 
-import laboojava.entidade.Cliente;
-import laboojava.entidade.Cupom;
-import laboojava.entidade.Pedido;
-import laboojava.entidade.Produto;
+import entidade.Cliente;
+import entidade.Cupom;
+import entidade.Pedido;
+import entidade.Produto;
 
 import java.util.ArrayList;
 import java.util.List;

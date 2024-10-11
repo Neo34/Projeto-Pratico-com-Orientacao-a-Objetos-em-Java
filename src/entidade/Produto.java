@@ -1,4 +1,4 @@
-package laboojava.entidade;
+package entidade;
 
 /**
  * Classe que representa a abstração dos produtos que podem ser vendidos pela loja.
