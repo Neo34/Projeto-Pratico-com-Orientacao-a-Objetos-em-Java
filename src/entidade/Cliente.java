@@ -1,6 +1,7 @@
 package entidade;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.
@@ -61,5 +62,18 @@ public class Cliente implements Serializable, Comparable<Cliente> {
     @Override
     public int compareTo(Cliente outroCliente) {
         return this.nome.compareTo(outroCliente.getNome());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return cpf.equals(cliente.cpf);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpf);
     }
 }
