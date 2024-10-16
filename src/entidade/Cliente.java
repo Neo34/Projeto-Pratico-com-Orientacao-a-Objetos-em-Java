@@ -56,7 +56,9 @@ public class Cliente implements Serializable, Comparable<Cliente> {
 
     @Override
     public String toString() {
-        return "Cliente{ nome='" + nome + "'}";
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ",cpf='" + getCpfFormatado() + '\'' + '}';
     }
 
     @Override
