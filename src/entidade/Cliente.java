@@ -1,9 +1,11 @@
 package entidade;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.
  */
-public class Cliente {
+public class Cliente implements Serializable, Comparable<Cliente> {
 
     /**
      * Nome completo do cliente.
@@ -54,5 +56,10 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{ nome='" + nome + "'}";
+    }
+
+    @Override
+    public int compareTo(Cliente outroCliente) {
+        return this.nome.compareTo(outroCliente.getNome());
     }
 }
