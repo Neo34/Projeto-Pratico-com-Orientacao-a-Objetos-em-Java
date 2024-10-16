@@ -6,18 +6,22 @@ import java.util.List;
  * Classe que representa a entidade pedido, qual é a compra dos produtos por um cliente.
  */
 public class Pedido {
+
+    // Atributos
     private int codigo;
     private Cliente cliente;
     private List<Produto> produtos;
     private double total;
 
-    public Pedido(int codigo, Cliente cliente, List<Produto> produtos, double total) {
+    // Construtor
+    public Pedido(int codigo, Cliente cliente, List<Produto> produtos) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.produtos = produtos;
-        this.total = total;
+        this.total = calcularTotal();
     }
 
+    // Getters e Setters
     public int getCodigo() {
         return codigo;
     }
@@ -40,6 +44,11 @@ public class Pedido {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+        this.total = calcularTotal(); // recalcula o total quando a lista de produtos muda
+    }
+
+    public double getTotal() {
+        return total;
     }
 
     // Método para calcular o total do pedido
