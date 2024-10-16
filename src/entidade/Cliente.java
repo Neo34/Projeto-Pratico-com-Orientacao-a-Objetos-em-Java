@@ -19,6 +19,14 @@ public class Cliente implements Serializable, Comparable<Cliente> {
     private String cpf;
 
     /**
+     * Construtor padrão inicializa com valores predefinidos.
+     */
+    public Cliente() {
+        this.nome = "Fulano";
+        this.cpf = "12345678901";
+    }
+
+    /**
      * É uma boa prática fornecer um construtor que permita passar esses valores
      * como parâmetros para tornar a classe mais flexível
      */
