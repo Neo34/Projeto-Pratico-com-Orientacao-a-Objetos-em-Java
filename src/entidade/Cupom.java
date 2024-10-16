@@ -14,7 +14,7 @@ public class Cupom {
     /**
      * Valor em porcentagem do desconto.
      */
-    private int desconto;
+    private double desconto;
 
     /**
      * Construtor do cupom
@@ -39,7 +39,7 @@ public class Cupom {
         return desconto;
     }
 
-    public void setDesconto(int desconto) {
+    public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
 
