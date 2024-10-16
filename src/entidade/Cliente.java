@@ -32,7 +32,11 @@ public class Cliente {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome != null && !nome.trim().isEmpty()) {
+            this.nome = nome;
+        } else {
+            throw new IllegalArgumentException("Nome não pode ser vazio");
+        }
     }
 
     public String getCpf() {
@@ -40,7 +44,11 @@ public class Cliente {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf.matches("\\d{11}")) {//Exemplo de regex simples para validar se o CPF tem 11 dígitos
+            this.cpf = cpf;
+        } else {
+            throw new IllegalArgumentException("CPF inválido.Deve conter 11 dígitos.");
+        }
     }
 
     @Override
