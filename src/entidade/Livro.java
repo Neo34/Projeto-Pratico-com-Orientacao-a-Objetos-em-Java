@@ -46,7 +46,7 @@ public class Livro extends Produto {
     public String toString() {
         return "Livro{" +
                 "nome='" + nome + '\'' +
-                ", genero=" + genero + '\'' +
+                ", genero=" + genero +
                 ", codigo='" + getCodigo() + '\'' +
                 ", preço='" + getPreco() + '\'' +
                 '}';
