@@ -1,6 +1,9 @@
 package negocio;
 
 import basedados.Banco;
+import entidade.Cupom;
+import entidade.Pedido;
+import entidade.Produto;
 
 import java.util.List;
 
@@ -78,7 +81,7 @@ public class PedidoNegocio {
         for (int i = 0; i < bancoDados.getPedidos().length; i++) {
 
             Pedido pedido = bancoDados.getPedidos()[i];
-            if (pedido.getCodigo().equals(codigo)) {
+            if (pedido.getCodigo()) {
                 pedidoExclusao = i;
                 break;
             }

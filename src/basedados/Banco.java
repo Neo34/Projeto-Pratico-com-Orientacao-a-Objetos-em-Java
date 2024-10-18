@@ -17,22 +17,22 @@ public class Banco {
     /**
      * Lista que armazena os produtos(livros e cadernos) cadastrados.
      */
-    private List<Produto> produtos;
+    private final List<Produto> produtos;
 
     /**
      * Lista que armazena os pedidos cadastrados.
      */
-    private List<Pedido> pedidos;
+    private final List<Pedido> pedidos;
 
     /**
      * Lista que armazena os cupons disponíveis.
      */
-    private List<Cupom> cupons;
+    private final List<Cupom> cupons;
 
     /**
      * Cliente cadastrado.
      */
-    private Cliente cliente;
+    private final Cliente cliente;
 
     public Banco() {
 
@@ -58,15 +58,21 @@ public class Banco {
         return pedidos.toArray(new Pedido[pedidos.size()]);
     }
 
-    public Produto[] getProdutos() {
-        return produtos.toArray(new Produto[produtos.size()]);
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
     public void adicionarProduto(Produto produto) {
         produtos.add(produto);
     }
 
+    /*Validação de Índices*/
     public void removerProduto(int posicao) {
+        if (posicao >= 0 && posicao < produtos.size()) {
+            produtos.remove(posicao);
+        } else {
+            System.out.println("Posicao invalida.");
+        }
         produtos.remove(posicao);
     }
 
@@ -74,7 +80,23 @@ public class Banco {
         pedidos.add(pedido);
     }
 
+    /*Validação de Índices*/
     public void removerPedido(int posicao) {
+        if (posicao >= 0 && posicao < pedidos.size()) {
+            pedidos.remove(posicao);
+        } else {
+            System.out.println("Posicao invalida.");
+        }
         pedidos.remove(posicao);
     }
+
+    /*método simples de "update" para produtos ou pedidos*/
+
+    public void atualizarProduto(int posicao, Produto novoProduto) {
+        produtos.set(posicao, novoProduto);
+    }
+
 }
+
+
+

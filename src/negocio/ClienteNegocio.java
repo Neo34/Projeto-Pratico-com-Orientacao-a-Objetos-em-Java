@@ -1,7 +1,7 @@
-package one.digitalinovation.laboojava.negocio;
+package negocio;
 
-import one.digitalinovation.laboojava.basedados.Banco;
-import one.digitalinovation.laboojava.entidade.Cliente;
+import basedados.Banco;
+import entidade.Cliente;
 
 import java.util.Optional;
 
@@ -32,7 +32,7 @@ public class ClienteNegocio {
      */
     public Optional<Cliente> consultar(String cpf) {
 
-        if (bancoDados.getCliente().getCpf().equals(cpf)) {
+        if (bancoDados.getCliente().getCpfFormatado().equals(cpf)) {
             return Optional.of(bancoDados.getCliente());
         } else {
             return Optional.empty();

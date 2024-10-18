@@ -49,6 +49,10 @@ public abstract class Produto {
 
     public abstract double calcularFrete();
 
+    public int getId() {
+        return 0;
+    }
+
     /**
      * Calcula o preço do frete para os produtos comprados. Este cálculo pode
      * variar de acordo com o produto
