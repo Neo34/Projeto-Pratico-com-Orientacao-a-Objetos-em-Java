@@ -1,7 +1,6 @@
 package entidade;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.
@@ -84,6 +83,28 @@ public class Cliente implements Serializable, Comparable<Cliente> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(cpf);
+        return 0;
+    }
+
+    public void add(Cliente cliente) {
+        if (cliente != null) {
+            cliente.add(cliente);
+            System.out.println("Cliente adicionado com sucesso!");
+        } else {
+            System.out.println("O cliente não pode ser nulo.");
+        }
+    }
+
+    public void remove(Cliente cliente) {
+        if (cliente != null && cliente.contains(cliente)) {
+            cliente.remove(cliente);
+            System.out.println("Cliente removido com sucesso!");
+        } else {
+            System.out.println("Cliente não encontrado ou é nulo.!");
+        }
+    }
+
+    private boolean contains(Cliente cliente) {
+        return true;
     }
 }
