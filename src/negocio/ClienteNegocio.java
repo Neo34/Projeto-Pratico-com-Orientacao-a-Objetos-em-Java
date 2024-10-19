@@ -41,14 +41,26 @@ public class ClienteNegocio {
 
     /**
      * Cadastra um novo cliente.
+     *
      * @param cliente Novo cliente que terá acesso a aplicação
      */
     //TODO Fazer a inclusão de cliente
+    public void cadastrar(Cliente cliente) {
+        bancoDados.getCliente().add(cliente);
+    }
 
     /**
      * Exclui um cliente específico.
+     *
      * @param cpf CPF do cliente
      */
     //TODO Fazer a exclusão de cliente
-
+    public boolean excluir(String cpf) {
+        Optional<Cliente> cliente = consultar(cpf);
+        if (cliente.isPresent()) {
+            bancoDados.getCliente().remove(cliente.get());
+            return true;
+        }
+        return false;
+    }
 }
