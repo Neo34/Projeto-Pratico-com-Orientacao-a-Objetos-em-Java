@@ -19,14 +19,13 @@ public class PedidoNegocio {
 
     /**
      * Construtor.
-     *
-     * @param banco Banco de dados para ter armazenar e ter acesso os pedidos
+     * Instância do banco de dados que será usada para armazenar e acessar os pedidos.
      */
     public PedidoNegocio(Banco banco) {
         this.bancoDados = banco;
     }
 
-    private double calcularTotal(List<Produto> produtos, Cupom cupom) {
+    private double calcularFrete(List<Produto> produtos, Cupom cupom) {
 
         double total = 0.0;
         for (Produto produto : produtos) {
@@ -59,15 +58,26 @@ public class PedidoNegocio {
      */
     public void salvar(Pedido novoPedido, Cupom cupom) {
 
-        //Definir padrão código
-        //Pegar data do dia corrente
-        //Formatar código
+        // Definir padrão de código do pedido (por exemplo, gerar um UUID ou código sequencial)
+        String codigo = "PED-" + System.currentTimeMillis(); // Exemplo de código simples usando timestamp
+        // Pegar data do dia corrente
+        novoPedido.setData(java.time.LocalDate.now());
+        // Setar o código e cliente no pedido
+        novoPedido.setCodigo(Integer.parseInt(codigo));
 
-        //Setar código no pedido
-        //Setar cliente no pedido
-        //Calcular e set total
-        //Adicionar no banco
-        //Mensagem
+        // Calcular o total do pedido e setá-lo
+        double total = calcularTotal(novoPedido.getProdutos(), cupom);
+        novoPedido.setTotal(total);
+
+        // Adicionar o pedido no banco
+        bancoDados.adicionarPedido(novoPedido);
+
+        // Mensagem de sucesso
+        System.out.println("Pedido salvo com sucesso: " + codigo);
+    }
+
+    private double calcularTotal(List<Produto> produtos, Cupom cupom) {
+        return 0;
     }
 
     /**
@@ -99,5 +109,16 @@ public class PedidoNegocio {
      * Lista todos os pedidos realizados.
      */
     //TODO Método de listar todos os pedidos
+    public void listarPedidos() {
+        Pedido[] pedidos = bancoDados.getPedidos();
+        if (pedidos.length == 0) {
+            System.out.println("Nenhum pedido foi realizado.");
+            return;
+        }
+        for (Pedido pedido : pedidos) {
+            System.out.println("Código: " + pedido.getCodigo() + ", Cliente: " + pedido.getCliente().getNome() + ", Total: " + pedido.getTotal());
+        }
+    }
+
 
 }

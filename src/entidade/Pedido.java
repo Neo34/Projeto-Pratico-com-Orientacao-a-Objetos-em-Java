@@ -1,5 +1,6 @@
 package entidade;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -68,5 +69,11 @@ public class Pedido {
                 ", produtos=" + produtos +
                 ", total=" + total +
                 '}';
+    }
+
+    public void setData(LocalDate now) {
+    }
+
+    public void setTotal(double total) {
     }
 }
