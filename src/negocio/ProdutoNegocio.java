@@ -33,12 +33,13 @@ public class ProdutoNegocio {
     public void salvar(Produto novoProduto) {
 
         String codigo = "PR%04d";
-        codigo = String.format(codigo, bancoDados.getProdutos().length);
+        codigo = String.format(codigo, bancoDados.getProdutos().size());
         novoProduto.setCodigo(codigo);
 
         boolean produtoRepetido = false;
         for (Produto produto : bancoDados.getProdutos()) {
-            if (produto.getCodigo() == novoProduto.getCodigo()) {
+            /*utilizar o método .equals para comparar o conteúdo das Strings.*/
+            if (produto.getCodigo().equals(novoProduto.getCodigo())) {
                 produtoRepetido = true;
                 System.out.println("Produto já cadastrado.");
                 break;
@@ -57,7 +58,19 @@ public class ProdutoNegocio {
      * @param codigo Código de cadastro do produto
      */
     public void excluir(String codigo) {
-        //TODO Implementar a exclusão
+        boolean produtoEncontrado = false;
+        Produto[] produtos = bancoDados.getProdutos().toArray(new Produto[0]);
+        for (int i = 0; i < produtos.length; i++) {
+            if (produtos[i].getCodigo().equalsIgnoreCase(codigo)) {
+                bancoDados.removerProduto(produtos[i]);
+                produtoEncontrado = true;
+                System.out.println("Produto excluido com sucesso.");
+                break;
+            }
+        }
+        if (!produtoEncontrado) {
+            System.out.println("Produto não Encontrado.");
+        }
     }
 
     /**
@@ -83,7 +96,7 @@ public class ProdutoNegocio {
      */
     public void listarTodos() {
 
-        if (bancoDados.getProdutos().length == 0) {
+        if (bancoDados.getProdutos().size() == 0) {
             System.out.println("Não existem produtos cadastrados");
         } else {
 
