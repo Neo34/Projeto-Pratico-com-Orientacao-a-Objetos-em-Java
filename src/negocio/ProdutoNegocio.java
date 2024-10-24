@@ -60,16 +60,18 @@ public class ProdutoNegocio {
     public void excluir(String codigo) {
         boolean produtoEncontrado = false;
         Produto[] produtos = bancoDados.getProdutos().toArray(new Produto[0]);
-        for (int i = 0; i < produtos.length; i++) {
-            if (produtos[i].getCodigo().equalsIgnoreCase(codigo)) {
-                bancoDados.removerProduto(produtos[i]);
+
+        for (Produto produto : produtos) {
+            if (produto.getCodigo().equalsIgnoreCase(codigo)) {
+                bancoDados.removerProduto(String.valueOf(produto));  // Corrigido para remover o objeto Produto
                 produtoEncontrado = true;
-                System.out.println("Produto excluido com sucesso.");
+                System.out.println("Produto excluído com sucesso.");
                 break;
             }
         }
+
         if (!produtoEncontrado) {
-            System.out.println("Produto não Encontrado.");
+            System.out.println("Produto não encontrado.");
         }
     }
 
