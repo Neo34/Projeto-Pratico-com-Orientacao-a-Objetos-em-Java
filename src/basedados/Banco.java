@@ -67,11 +67,11 @@ public class Banco {
     }
 
     /* Validação de Índices */
-    public void removerProduto(int posicao) {
-        if (posicao >= 0 && posicao < produtos.size()) {
-            produtos.remove(posicao); // Remover pelo índice
+    public void removerProduto(String codigo) {
+        if (codigo.isEmpty()) {
+            produtos.remove(codigo); // Remover pelo codigo
         } else {
-            System.out.println("Posição inválida.");
+            System.out.println("Podruto não removido.");
         }
     }
 
