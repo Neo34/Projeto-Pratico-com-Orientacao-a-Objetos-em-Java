@@ -6,6 +6,7 @@ import entidade.Pedido;
 import entidade.Produto;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Classe para manipular a entidade {@link Pedido}.
@@ -86,12 +87,12 @@ public class PedidoNegocio {
      * @param codigo Código do pedido
      */
     public void excluir(String codigo) {
-
         int pedidoExclusao = -1;
-        for (int i = 0; i < bancoDados.getPedidos().length; i++) {
 
+        // Percorrer os pedidos para encontrar o pedido pelo código
+        for (int i = 0; i < bancoDados.getPedidos().length; i++) {
             Pedido pedido = bancoDados.getPedidos()[i];
-            if (pedido.getCodigo()) {
+            if (Objects.equals(pedido.getCodigo(), codigo)) { // Comparar o código
                 pedidoExclusao = i;
                 break;
             }
