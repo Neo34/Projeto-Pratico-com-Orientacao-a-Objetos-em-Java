@@ -66,14 +66,13 @@ public class Banco {
         produtos.add(produto);
     }
 
-    /*Validação de Índices*/
+    /* Validação de Índices */
     public void removerProduto(int posicao) {
         if (posicao >= 0 && posicao < produtos.size()) {
-            produtos.remove(posicao);
+            produtos.remove(posicao); // Remover pelo índice
         } else {
-            System.out.println("Posicao invalida.");
+            System.out.println("Posição inválida.");
         }
-        produtos.remove(posicao);
     }
 
     public void adicionarPedido(Pedido pedido) {

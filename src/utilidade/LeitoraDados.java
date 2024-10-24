@@ -65,9 +65,27 @@ public final class LeitoraDados {
 
     /**
      * Ler os dados do caderno a ser cadastrado.
+     *
      * @return Um caderno a partir dos dados de entrada
      */
     //TODO Método para ler o caderno
+    public static <Caderno> Caderno lerCaderno() {
+        System.out.println("Cadastrando caderno...");
+        Caderno caderno = (Caderno) lerDado();
+
+        System.out.println("Digite o nome");
+        caderno.equals(lerDado());
+
+        System.out.println("Digite o número de páginas");
+        String paginas = lerDado();
+        caderno.equals(Integer.parseInt(paginas));
+
+        System.out.println("Digite o preço(padrão 0.0)");
+        String preco = lerDado();
+        caderno.equals(Double.parseDouble(preco));
+
+        return caderno;
+    }
 
     /**
      * Ler os dados do pedido e retorna um objeto a partir destes.
