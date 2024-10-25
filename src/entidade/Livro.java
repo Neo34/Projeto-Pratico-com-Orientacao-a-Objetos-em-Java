@@ -19,7 +19,7 @@ public class Livro extends Produto {
      */
     private Genero genero;
 
-    public Livro(String nome, Genero genero) {
+    public Livro(String nome, Genero genero, double v, int i) {
         this.nome = nome;
         this.genero = genero;
     }

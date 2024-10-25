@@ -22,6 +22,10 @@ public class Pedido {
         this.total = calcularTotal();
     }
 
+    public Pedido() {
+
+    }
+
     // Getters e Setters
     public int getCodigo() {
         return codigo;
