@@ -5,6 +5,7 @@ package entidade;
  */
 public abstract class Produto {
 
+    private final int id;
     /**
      * Código de identiticação do produto.
      */
@@ -20,7 +21,14 @@ public abstract class Produto {
      */
     private int quantidade;
 
+    /**
+     * Campo estático para gerar IDs únicos para cada produto.
+     */
+    private static int contadorId = 0;
+
     public Produto() {
+        // Ao instanciar um novo produto, o ID é atribuído automaticamente
+        this.id = ++contadorId;
     }
 
     public String getCodigo() {
@@ -50,13 +58,7 @@ public abstract class Produto {
     public abstract double calcularFrete();
 
     public int getId() {
-        return 0;
+        return id;
     }
 
-    /**
-     * Calcula o preço do frete para os produtos comprados. Este cálculo pode
-     * variar de acordo com o produto
-     * @return valor do frete para o determinado produto
-     */
-    //TODO Método de cálculo de frete
 }
