@@ -8,6 +8,7 @@ import entidade.constantes.Genero;
  */
 public class Livro extends Produto {
 
+
     /**
      * Nome do livro.
      */
@@ -17,6 +18,15 @@ public class Livro extends Produto {
      * Gênero do livro.
      */
     private Genero genero;
+
+    public Livro(String nome, Genero genero) {
+        this.nome = nome;
+        this.genero = genero;
+    }
+
+    public Livro() {
+
+    }
 
     public String getNome() {
         return nome;
